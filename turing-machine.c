@@ -53,8 +53,6 @@ void initializeStates(State states[]) {
     states[1].transitions[3] = (Transition){7, 'B', RIGHT}; // B -> q7, B, R
     states[1].transitions[4] = (Transition){-1, '_', HANG}; // BLANK -> Hang
 
-    // ternary operator for BLANK
-
     // q2 transitions
     states[2].transitions[0] = (Transition){2, 'a', RIGHT}; // a -> q2, a, R
     states[2].transitions[1] = (Transition){4, 'A', LEFT};  // A -> q4, A, R
@@ -161,9 +159,6 @@ int simulateTuringMachine(State states[], char **tape, int startState) {
         if (symbolIndex == -1 || currentState >= MAX_STATES) {
             if (currentSymbol == ' ') {
                 symbolIndex = getSymbolIndex(BLANK);
-            } else {
-                printf("Error: Invalid state or symbol encountered.\n");
-                break;
             }
         }
 
