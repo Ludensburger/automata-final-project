@@ -223,7 +223,7 @@ int simulateTuringMachine(State states[], char **tape, int startState) {
                 printf("Tape Accepted!\n");
                 return 1;
 
-            } else if (currentState == 12 && (currentSymbol == 'a' || currentSymbol == 'A' || currentSymbol == 'b' || currentSymbol == 'B')) {
+            } else if (currentState == 12 && (currentSymbol == 'a' || currentSymbol == 'b')) {
                 printf("Tape Rejected! Encountered Hang.\n");
                 return 0;
             } else {
@@ -350,7 +350,7 @@ int main() {
     // Equal
     printf("Tape 5 \n");
     char *tape5 = malloc(INITIAL_TAPE_SIZE);
-    strcpy(tape5, "abab_"); // Example tape 2
+    strcpy(tape5, "abab__"); // Example tape 2
     if (simulateTuringMachine(states, &tape5, startState)) {
         printf("Characters are Equal!\n");
     } else {
